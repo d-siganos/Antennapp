@@ -105,26 +105,26 @@ class Window(Frame):
         self.tab3.configure(bg='white')
 
     def get_results_tab_2(self):
-        d = np.array([1, 2, 3, 4, 5])
-        hb = 30
-        hm = 2
-        fc = 900
-        W = 15
-        b = 30
-        phi = 90
-        hr = 30
+        d      = np.array([1, 2, 3, 4, 5])
+        hb     = 30
+        hm     = 2
+        fc     = 900
+        W      = 15
+        b      = 30
+        phi    = 90
+        hr     = 30
         dellhm = hr - hm
-        Lf= 32.4 + 20 * np.log10(d) + 20 * np.log10(fc)
-        L0= 4 - 0.114 * (phi - 55)
-        Lrts = -16.9 - 10 * math.log10(W) + 10 * math.log10(fc) + 20 * math.log10(dellhm) + L0
-        Lbsh = -18 * math.log10(11)
-        ka =54 - 0.8 * hb
+        Lf     = 32.4 + 20 * np.log10(d) + 20 * np.log10(fc)
+        L0     = 4 - 0.114 * (phi - 55)
+        Lrts   = -16.9 - 10 * math.log10(W) + 10 * math.log10(fc) + 20 * math.log10(dellhm) + L0
+        Lbsh   = -18 * math.log10(11)
+        ka     = 54 - 0.8 * hb
         dellhb = hb - hr
-        kd= 18 - 15 * dellhb / dellhm
-        kf = 4 + 0.7 * (fc / 925 - 1)
-        Lms = Lbsh + ka + kd * np.log10(d) + kf * np.log10(fc) - 9 * np.log10(b)
-        L50 = np.array([0, 0, 0, 0, 0])
-        L50 = Lf + Lrts + Lms
+        kd     = 18 - 15 * dellhb / dellhm
+        kf     = 4 + 0.7 * (fc / 925 - 1)
+        Lms    = Lbsh + ka + kd * np.log10(d) + kf * np.log10(fc) - 9 * np.log10(b)
+        L50    = np.array([0, 0, 0, 0, 0])
+        L50    = Lf + Lrts + Lms
         return L50
 
     def plot_hata(self, frequency=None, distance=None, antenna1=None, antenna2=None):
